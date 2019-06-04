@@ -18,29 +18,29 @@ import java.util.List;
  */
 public class ShippingServiceTest extends TestBase {
 
-    private Logger logger = LoggerFactory.getLogger(ShippingServiceTest.class);
+  private Logger logger = LoggerFactory.getLogger(ShippingServiceTest.class);
 
 
-    @Autowired
-    private ShippingServiceImpl iShippingService;
+  @Autowired
+  private ShippingServiceImpl iShippingService;
 
-    @Test
-    public void testSelect(){
-        ServerResponse sr = iShippingService.select(1, 3);
-        Shipping shipping = (Shipping)sr.getData();
-        logger.info(ToStringBuilder.reflectionToString(shipping));
+  @Test
+  public void testSelect() {
+    ServerResponse sr = iShippingService.select(1, 3);
+    Shipping shipping = (Shipping) sr.getData();
+    logger.info(ToStringBuilder.reflectionToString(shipping));
 
-    }
+  }
 
-    @Test
-    public void testList(){
-        ServerResponse sr = iShippingService.list(1,1,2);
-        PageInfo<Shipping> p=new PageInfo<Shipping>((List<Shipping>)sr.getData());
-        logger.info(ToStringBuilder.reflectionToString(sr.getData()));
-        logger.info("======");
+  @Test
+  public void testList() {
+    ServerResponse sr = iShippingService.list(1, 1, 2);
+    PageInfo<Shipping> p = new PageInfo<Shipping>((List<Shipping>) sr.getData());
+    logger.info(ToStringBuilder.reflectionToString(sr.getData()));
+    logger.info("======");
 
-        ServerResponse x = ServerResponse.createBySuccess(p);
-        logger.info(ToStringBuilder.reflectionToString(x));
+    ServerResponse x = ServerResponse.createBySuccess(p);
+    logger.info(ToStringBuilder.reflectionToString(x));
 
 //        {
 //            "status": 0,
@@ -99,5 +99,5 @@ public class ShippingServiceTest extends TestBase {
 //            ]
 //        }
 //        }
-    }
+  }
 }
